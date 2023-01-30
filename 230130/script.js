@@ -132,9 +132,41 @@ for (let i = 1; i <= 100; i++) {
   if (i % 2 == 0) console.log(i);
 }
 // 연습 문제 2
-let userInput = prompt("그만 << 을 입력하면 입력을 그만할 수 있습니다", "");
+// let userInput = prompt("그만 << 을 입력하면 입력을 그만할 수 있습니다", "");
+let userInput = "그만";
 while (userInput != "그만") {
-  userInput = prompt("", "");
+  // userInput = prompt("", "");
 }
 
 // 함수
+// 연습문제 1
+// 매개변수로 숫자를 받아서 해당 수의 <1 배수부터 10 배수까지> 출력하는 함수를 작성해보세요.
+// (ex. 2가 들어오면, 2 4 6 8 10 12 14 16 18 20 을 차례로 출력) (매개변수는 1개)
+function ex1(num) {
+  for (let i = 0; i < 10; i++) {
+    console.log(num * (i + 1));
+  }
+}
+// 연습문제 2
+// 매개변수로 숫자를 받아서 해당 수의 <1 배수부터 10 배수까지> 모두 더한 값을 리턴하는 함수를 작성해보세요.
+// (매개변수는 1개) (ex. 1이 들어오면, 55를 return)
+
+function ex2(num) {
+  let sum = 0;
+  for (let i = 0; i < 10; i++) {
+    sum += num * (i + 1);
+  }
+  return sum;
+}
+// 연습문제 3
+// 매개변수로 이름과 나이를 받아서 미성년자인지 여부를 판별하고,
+// “’이름’님은 ‘미성년자/성인’입니다.” 를 출력하는 함수를 작성해보세요.
+// (매개변수는 2개)
+
+function ex3(name, age) {
+  if (age < 20) {
+    console.log(`${name}님은 미성년자입니다`);
+  } else {
+    console.log(`${name}님은 성인입니다`);
+  }
+}
