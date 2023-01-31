@@ -33,10 +33,16 @@
 // 클래스가 이미 있으면 제거, 없으면 추가
 // blueDiv.classList.toggle("white-text");
 
-let img = document.getElementById("img");
+// let img = document.getElementById("img");
 
-img.setAttribute("src", "pikachu.png");
+// img.setAttribute("src", "pikachu.png");
 
-let aTag = document.getElementById("google");
-aTag.setAttribute("href", "https://www.google.com");
-aTag.removeAttribute("href");
+// let aTag = document.getElementById("google");
+// aTag.setAttribute("href", "https://www.google.com");
+// aTag.removeAttribute("href");
+
+// 연습문제
+
+let aTags = document.getElementsByTagName("a");
+let targetTag = aTags[1];
+targetTag.setAttribute("href", "https://www.naver.com");
