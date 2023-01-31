@@ -38,3 +38,21 @@ console.log(document.getElementsByClassName("second-div")[0]);
 let aTag = document.getElementsByTagName("a")[0];
 console.log(aTag);
 aTag.href = "https://www.google.com/";
+
+// querySelectorAll
+
+let div = document.querySelectorAll("div.second");
+console.log(div);
+
+let atags = document.querySelectorAll("p>a");
+console.log(atags);
+
+// 연습문제
+let res1 = document.getElementById("first");
+let res2 = document.getElementsByTagName("a");
+let res3 = document.getElementsByTagName("div");
+let res4 = document.querySelectorAll(".second");
+let res5 = document.querySelectorAll("div.second");
+let res6 = document.querySelectorAll("div.second > a");
+
+console.log(res1, res2, res3, res4, res5, res6);
