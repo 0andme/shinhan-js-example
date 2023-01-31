@@ -45,4 +45,5 @@
 
 let aTags = document.getElementsByTagName("a");
 let targetTag = aTags[1];
+targetTag.innerText = "네이버로 가기";
 targetTag.setAttribute("href", "https://www.naver.com");
