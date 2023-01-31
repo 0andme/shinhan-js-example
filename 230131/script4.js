@@ -25,10 +25,18 @@
 // firstDiv.style.backgroundColor = "blue";
 // firstDiv.style.color = "white";
 
-let blueDiv = document.getElementsByClassName("blue-div")[0];
-blueDiv.className = "green-div";
+// let blueDiv = document.getElementsByClassName("blue-div")[0];
+// blueDiv.className = "green-div";
 
-blueDiv.classList.add("white-text");
+// blueDiv.classList.add("white-text");
 // blueDiv.classList.remove('white-text')
 // 클래스가 이미 있으면 제거, 없으면 추가
-blueDiv.classList.toggle("white-text");
+// blueDiv.classList.toggle("white-text");
+
+let img = document.getElementById("img");
+
+img.setAttribute("src", "pikachu.png");
+
+let aTag = document.getElementById("google");
+aTag.setAttribute("href", "https://www.google.com");
+aTag.removeAttribute("href");
