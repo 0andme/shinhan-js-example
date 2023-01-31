@@ -70,10 +70,11 @@ students = [
 
 const res2 = students.reduce((sum, student) => {
   const {score} = student;
-  return sum + score.math + score.english + score.science;
+  // return sum + score.math + score.english + score.science;
+  return sum + Object.values(score).reduce((sum, cur) => sum + cur, 0);
 }, 0);
 
-console.log(res2);
+console.log("res2", res2);
 
 // 연습문제 3
 // 아래 배열에서 모든 사람들의 이름을
@@ -85,7 +86,7 @@ students = [
 ];
 
 const res3 = students.map((student) => ({...student, name: "Park"}));
-console.log(res3);
+console.log("res3", res3);
 
 // 연습문제 4
 // 아래 배열에서 이름이 Kim 인 사람들을 찾고,
@@ -104,4 +105,53 @@ const res4 = students
     return {...student, score: {...score, science: 100, history: 100}};
   });
 
-console.log(res4);
+console.log("res4", res4);
+
+// 연습문제 2
+// 1
+// 아래 배열에서,
+// 학생 별로 score 객체 안에 sum: (점수 총합) 을 추가하는 코드를 작성하세요.
+// (map, spread 연산자, 비구조할당 활용)
+students = [
+  {id: 1, name: "Kim", score: {math: 50, english: 70}},
+  {id: 2, name: "Park", score: {math: 80, english: 60}},
+  {id: 3, name: "Lee", score: {math: 70, english: 50}},
+];
+const res2_1 = students.map((student) => {
+  const {score} = student;
+  const sum = Object.values(score).reduce((sum, cur) => sum + cur, 0);
+  return {...student, sum};
+});
+
+console.log(res2_1);
+
+//2
+// 학생 수에 관계없이 아래와 같은 배열이 들어왔을 때
+// 모든 점수의 총합을 구하는 함수를 작성하세요.
+// (reduce, 비구조할당, spread, rest 연산자 활용)
+
+function getTotalScore(students) {
+  const result5 = students
+    .map(({score, ...rest}) =>
+      Object.values(score).reduce((sum, curr) => sum + curr, 0)
+    )
+    .reduce((a, b) => a + b, 0);
+  return result5;
+}
+
+students = [
+  {id: 1, name: "Kim", score: {math: 50, english: 70}},
+  {id: 2, name: "Park", score: {math: 80, english: 60}},
+  {id: 3, name: "Lee", score: {math: 70, english: 50}},
+  ,
+  {id: 4, name: "Choi", score: {math: 70, english: 50}},
+];
+
+console.log("2-2-1", getTotalScore(students));
+
+// 4-2-2
+students = [
+  {id: 1, name: "Kim", score: {math: 50, english: 70}},
+  {id: 2, name: "Park", score: {math: 80, english: 60}},
+];
+console.log("2-2-2", getTotalScore(students));
