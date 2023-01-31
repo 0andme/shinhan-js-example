@@ -6,14 +6,9 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <main onclick="console.log(event.target, event.currentTarget)">
-      main태그입니다
-      <div onclick="console.log(event.target, event.currentTarget)">
-        div태그입니다
-        <p onclick="console.log(event.target, event.currentTarget)">
-          p태그입니다
-        </p>
-      </div>
-    </main>
+    <div onclick="alert('div 입니다')">
+      div태그입니다
+      <button onclick="buttonClick(event)">버튼 누르기</button>
+    </div>
   </body>
 </html>
