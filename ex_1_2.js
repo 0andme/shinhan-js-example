@@ -5,11 +5,13 @@ const highlight = (element) => {
     highlightedBtn.classList.remove("highlight");
   }
   element.classList.add("highlight");
+  highlightedBtn = element;
 };
 
 let menu = document.getElementById("menu");
 
 menu.addEventListener("click", (event) => {
-  highlight(event.target);
-  highlightedBtn = event.target;
+  if (event.target.tagName === "BUTTON") {
+    highlight(event.target);
+  }
 });
