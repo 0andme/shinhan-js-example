@@ -15,11 +15,20 @@ async function deletePost(event) {
 
 async function insertPostsList() {
   let posts = await getPosts();
-  console.log(posts);
 
   let listEl = document.getElementById("postList");
 
   for (let post of posts) {
+    // listEl.insertAdjacentHTML(
+    //   "beforeEnd",
+    //   `<div id="${post.id}">
+    //     <h1>${post.title}
+    //     </h1>
+    //     <p>${post.body}</p>
+    //     <button onclick="deletePost(${post.id})">삭제</button>
+    //   </div>`
+    // );
+
     let liEl = document.createElement("div");
     let titleEl = document.createElement("h4");
     let bodyEl = document.createElement("p");
