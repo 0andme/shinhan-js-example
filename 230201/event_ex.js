@@ -25,17 +25,38 @@ function onKeydown(event) {
   height = parseInt(event.target.style.height);
 
   if (event.key === "Backspace") {
-    event.target.style.width = `${width - 1}px`;
-    event.target.style.height = `${height - 1}px`;
+    event.target.style.width = `${width - 5}px`;
+    event.target.style.height = `${height - 5}px`;
   } else {
-    event.target.style.width = `${width + 1}px`;
-    event.target.style.height = `${height + 1}px`;
+    event.target.style.width = `${width + 5}px`;
+    event.target.style.height = `${height + 5}px`;
+  }
+}
+
+function incSize(event) {
+  width = parseInt(event.target.style.width);
+  height = parseInt(event.target.style.height);
+  if (event.key != "Backspace") {
+    event.target.style.width = `${width + 5}px`;
+    event.target.style.height = `${height + 5}px`;
+  }
+}
+
+function decSize(event) {
+  width = parseInt(event.target.style.width);
+  height = parseInt(event.target.style.height);
+  if (event.key === "Backspace") {
+    event.target.style.width = `${width - 5}px`;
+    event.target.style.height = `${height - 5}px`;
   }
 }
 
 id.addEventListener("focus", onDoubleSize);
 id.addEventListener("blur", onOriginSize);
-id.addEventListener("keydown", onKeydown);
+// id.addEventListener("keydown", onKeydown);
+// addEventListener에 여러개의 이벤트 함수 붙이기
+id.addEventListener("keydown", decSize);
+id.addEventListener("keydown", incSize);
 
 pw.addEventListener("focus", onDoubleSize);
 pw.addEventListener("blur", onOriginSize);
