@@ -6,6 +6,10 @@
 // id / pw input 태그에 글자를 입력하려고 할때마다 width 가 커지고,
 // 글자를 지울때마다 width 가 작아지도록 코드를 작성해보세요. (keydown 이벤트 활용)
 
+// 동일한 HTML 을 활용해서,
+// id / pw input 태그를 마우스로 클릭하는 동안에만 해당 태그의 배경색이 blue 가 되도록]
+// 코드를 작성해보세요. (mouseup, mousedown 이벤트 활용)
+
 let id = document.getElementById("id");
 let pw = document.getElementById("pw");
 
@@ -51,12 +55,21 @@ function decSize(event) {
   }
 }
 
+function colorBlue(event) {
+  event.target.style.backgroundColor = "blue";
+}
+function colorWhite(event) {
+  event.target.style.backgroundColor = "white";
+}
+
 id.addEventListener("focus", onDoubleSize);
 id.addEventListener("blur", onOriginSize);
 // id.addEventListener("keydown", onKeydown);
 // addEventListener에 여러개의 이벤트 함수 붙이기
 id.addEventListener("keydown", decSize);
 id.addEventListener("keydown", incSize);
+id.addEventListener("mouseup", colorBlue);
+id.addEventListener("mousedown", colorWhite);
 
 pw.addEventListener("focus", onDoubleSize);
 pw.addEventListener("blur", onOriginSize);
