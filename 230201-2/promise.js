@@ -23,3 +23,22 @@ promise
     return res;
   })
   .then((res) => {});
+
+// async를 쓰면, 무조건 프로미스를 리턴함
+async function hello() {
+  return "hello";
+}
+
+hello().then((res) => {
+  console.log(res);
+});
+
+async function waitPromise() {
+  let promise = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve("await"), 2000);
+  });
+  let res = await promise;
+  console.log(res);
+}
+
+waitPromise();
