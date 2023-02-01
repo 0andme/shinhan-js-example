@@ -20,7 +20,7 @@ function setCity(event) {
     cityNameEl.innerText = event.target.id;
     cityNow = event.target.id;
   }
-  let data = await getApi();
+  // let data = await getApi();
   // let cityNameEl = document.getElementsByClassName("temperature")[0];
   // cityNameEl.innerText=data.
 }
