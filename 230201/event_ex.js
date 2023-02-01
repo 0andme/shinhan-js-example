@@ -15,15 +15,21 @@ function onDoubleSize(event) {
 }
 
 function onOriginSize(event) {
+  console.log(event.target.style);
   event.target.style.width = "100px";
   event.target.style.height = "30px";
 }
 
 function onKeydown(event) {
+  width = parseInt(event.target.style.width);
+  height = parseInt(event.target.style.height);
+
   if (event.key === "Backspace") {
-    onOriginSize(event);
+    event.target.style.width = `${width - 1}px`;
+    event.target.style.height = `${height - 1}px`;
   } else {
-    onDoubleSize(event);
+    event.target.style.width = `${width + 1}px`;
+    event.target.style.height = `${height + 1}px`;
   }
 }
 
