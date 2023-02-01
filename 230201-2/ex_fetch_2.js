@@ -26,14 +26,15 @@ async function insertPost(id) {
   bodyEl.value = post.body;
 }
 
-async function updatePost() {
+async function updatePost(id) {
   let post = {
     title: document.getElementById("title").value,
     body: document.getElementById("body").value,
   };
-  putPost(post, 1);
+  let res = await putPost(post, id);
+  return res;
 }
 
-let updateBtn = document.getElementById("updateBtn");
-updateBtn.addEventListener("click", updatePost);
+// let updateBtn = document.getElementById("updateBtn");
+// updateBtn.addEventListener("click", updatePost);
 insertPost(1);
