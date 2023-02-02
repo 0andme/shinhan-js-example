@@ -43,14 +43,28 @@ async function getArticleList() {
   return data;
 }
 async function deleteArticle(id) {
+  let token = getCookie("access_token");
   let respose = await fetch(`${SERVER_URL}/blog/article/${id}`, {
     method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`, // 헤더에 지정
+    },
   });
 
   if (respose.status === 204) {
     let article = document.getElementById(id);
     article.remove();
   }
+}
+function getCookie(name) {
+  let matches = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+        "=([^;]*)"
+    )
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 async function insertArticleList() {
@@ -60,9 +74,9 @@ async function insertArticleList() {
     listEl.insertAdjacentHTML(
       "beforeEnd",
       `<div id="${article.id}">
-     
-      <h2>${article.title}</h2>
-      <p>(<span>${article.id}</span>) ${article.content}</p>
+      <h2>작성자 : ${article.author}</h2>
+      <h4>제목 : ${article.title}</h4>
+      <p>(<span>${article.id}</span>) 내용:${article.content}</p>
       <button onclick="deleteArticle(${article.id})">삭제</button>
     </div>`
     );
