@@ -11,6 +11,7 @@ async function insertArticle(id) {
   let content = document.getElementById("content");
   title.value = data.title;
   content.value = data.content;
+  title.parentElement.id = data.id;
 }
 
 async function putArticle(article, id) {
@@ -23,14 +24,14 @@ async function putArticle(article, id) {
   });
 }
 
-async function updateArticle(id) {
+async function updateArticle(event) {
+  let id = event.target.previousElementSibling.id;
   let article = {
     title: document.getElementById("title").value,
     content: document.getElementById("content").value,
   };
   let res = await putArticle(article, id);
   location.reload();
-  console.log(res);
 }
 
 insertArticle(7);
